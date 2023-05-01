@@ -3,6 +3,7 @@ import {Box, Chip, Paper, Typography, useTheme} from "@mui/material";
 import { useState } from "react";
 import _ from "lodash";
 import moment from "moment";
+import shortid from "shortid";
 
 interface CommentProps {
     id: number
@@ -76,7 +77,11 @@ const Comment = ({id}: CommentProps) => {
                     borderLeft: `3px solid ${theme.palette.primary.light}`
                 }}>
                     {
-                        _.map(_.sortedUniq((comment?.kids || [])), (commentId) => <Comment id={commentId}/>)
+                        _.map(_.sortedUniq((comment?.kids || [])), (commentId) => (
+                            <Comment key={shortid.generate()}
+                                     id={commentId}
+                            />
+                        ))
                     }
                 </Box> : <></>
             }

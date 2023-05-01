@@ -6,6 +6,7 @@ import _ from "lodash";
 import Comment from "../../elements/comment"
 import RefreshIcon from "@mui/icons-material/Refresh";
 import Skelet from "../../elements/skelet";
+import shortid from "shortid";
 
 
 
@@ -76,7 +77,10 @@ const News = () => {
                     gap: "10px"
                 }}>
                     {
-                        _.map(news?.kids || [], (commentId) => <Comment id={commentId}/>)
+                        _.map(news?.kids || [], (commentId) => (
+                            <Comment id={commentId}
+                                     key={shortid.generate()}
+                            />))
                     }
                 </Box>
             </Paper>

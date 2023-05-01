@@ -40,7 +40,7 @@ const NewsCard = (props: NewsCardProps) => {
             </Box>
             <Box sx={{display: "flex", justifyContent: "space-between", gap: "10px", alignItems: "center", marginLeft: "10px"}}>
                 <Typography variant={"subtitle1"} sx={{ display: "flex", gap: "5px", alignItems: "center"}}>
-                    By <Typography color={theme.palette.primary.light} variant={"subtitle1"}>{props.author}</Typography>
+                    By <Typography color={theme.palette.primary.light} variant={"inherit"} component="span">{props.author}</Typography>
                 </Typography>
                 <Chip label={moment(props.date * 1000).format("HH:mm | DD MMM YYYY")}/>
             </Box>

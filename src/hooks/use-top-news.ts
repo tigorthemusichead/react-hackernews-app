@@ -32,7 +32,6 @@ const useTopNews = () => {
             );
 
             const news = await Promise.all(storyFetchers);
-            console.log(news);
             setState(news);
             setLoading(false);
         } catch (err) {

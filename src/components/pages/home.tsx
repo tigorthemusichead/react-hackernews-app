@@ -3,6 +3,7 @@ import useTopNews from "../../hooks/use-top-news";
 import NewsCard from "../elements/news-card";
 import {Box, Button, Chip, CircularProgress, Skeleton} from "@mui/material";
 import RefreshIcon from '@mui/icons-material/Refresh';
+import shortid from "shortid"
 
 const Home = () => {
     const { news, loading, fetch } = useTopNews();
@@ -30,6 +31,7 @@ const Home = () => {
                     { news.length > 0 ?
                         _.map(news, ({by, score, time, title, kids, descendants, id}) => (
                             <NewsCard
+                                key={shortid.generate()}
                                 author={by}
                                 score={score}
                                 date={time}
@@ -41,9 +43,11 @@ const Home = () => {
                         <>
                         {
                             _.map([0, 1, 2, 3, 4, 5], () => (
-                                <Skeleton variant={"rectangular"} sx={{
-                                    height: "140px",
-                                    borderRadius: "3px"
+                                <Skeleton key={shortid.generate()}
+                                          variant={"rectangular"}
+                                          sx={{
+                                                height: "140px",
+                                                borderRadius: "3px",
                                 }}/>
                             ))
                         }
