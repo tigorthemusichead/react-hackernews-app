@@ -1,6 +1,10 @@
 # Hacker news app
 #### BR Group test task by Arsenii Ermolaev
 
+## Deployed demo app
+
+[https://react-hackernews-app.vercel.app/](https://react-hackernews-app.vercel.app/)
+
 ## What is used
 
 - Typescript
